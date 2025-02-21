@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity // User is an Entity
-@Data // For Getter and Setter methods
+//@Data // For Getter and Setter methods
 public class User {
     @Id // Primary Key
     @GeneratedValue(strategy = GenerationType.AUTO) // Auto-generate ID
@@ -39,6 +39,30 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public User(Long id, String fullname, String email, String password, List<Issue> assignedIssue, int projectSize) {
+        this.id = id;
+        this.fullname = fullname;
+        this.email = email;
+        this.password = password;
+        this.assignedIssue = assignedIssue;
+        this.projectSize = projectSize;
+    }
+
+    public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", fullname='" + fullname + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", assignedIssue=" + assignedIssue +
+                ", projectSize=" + projectSize +
+                '}';
     }
 
     @JsonIgnore
