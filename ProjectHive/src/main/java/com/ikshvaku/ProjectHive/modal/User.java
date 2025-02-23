@@ -41,6 +41,14 @@ public class User {
         this.password = password;
     }
 
+    public int getProjectSize() {
+        return projectSize;
+    }
+
+    public void setProjectSize(int projectSize) {
+        this.projectSize = projectSize;
+    }
+
     public User(Long id, String fullname, String email, String password, List<Issue> assignedIssue, int projectSize) {
         this.id = id;
         this.fullname = fullname;

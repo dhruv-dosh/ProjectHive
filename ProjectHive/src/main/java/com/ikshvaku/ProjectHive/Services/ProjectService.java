@@ -3,6 +3,7 @@ package com.ikshvaku.ProjectHive.Services;
 import com.ikshvaku.ProjectHive.modal.Chat;
 import com.ikshvaku.ProjectHive.modal.Project;
 import com.ikshvaku.ProjectHive.modal.User;
+import com.ikshvaku.ProjectHive.repository.UserRepository;
 
 import java.util.List;
 
@@ -17,5 +18,7 @@ public interface ProjectService {
      void removeUserFromProject(Long projectId,Long userId)throws Exception;
 
      Chat getChatByProjectId(Long projectId)throws Exception;
+
+     List<Project> searchProjects(String keyword, User user) throws Exception;
 
 }
