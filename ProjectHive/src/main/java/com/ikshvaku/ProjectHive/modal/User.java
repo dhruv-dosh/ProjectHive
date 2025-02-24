@@ -17,6 +17,10 @@ public class User {
     private String email;
     private String password;
 
+    public Long getId() {
+        return id;
+    }
+
     public String getFullname() {
         return fullname;
     }

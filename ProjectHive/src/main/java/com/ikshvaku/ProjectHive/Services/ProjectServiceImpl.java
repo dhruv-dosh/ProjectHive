@@ -58,7 +58,7 @@ public class ProjectServiceImpl implements ProjectService{
     }
 
     @Override
-    public Project getProjectId(Long projectId) throws Exception {
+    public Project getProjectById(Long projectId) throws Exception {
         Optional<Project> optionalProject = projectRepository.findById(projectId);
         if (optionalProject.isEmpty()){
             throw new Exception("Project not Found");
@@ -68,13 +68,13 @@ public class ProjectServiceImpl implements ProjectService{
 
     @Override
     public void deleteProject(Long projectId, Long userId) throws Exception {
-         getProjectId(projectId);
+         getProjectById(projectId);
          projectRepository.deleteById(projectId);
     }
 
     @Override
     public Project updateProject(Project updatedProject, Long id) throws Exception {
-        Project project = getProjectId(id);
+        Project project = getProjectById(id);
         project.setName(updatedProject.getName());
         project.setDescription(updatedProject.getDescription());
         project.setTags(updatedProject.getTags());
@@ -84,7 +84,7 @@ public class ProjectServiceImpl implements ProjectService{
     @Override
     public void addUserToProject(Long projectId, Long userId) throws Exception {
 
-        Project project = getProjectId(projectId);
+        Project project = getProjectById(projectId);
         User user = userService.findUserById(userId);
         if (!project.getTeam().contains(user)){
             project.getTeam().add(user);
@@ -96,7 +96,7 @@ public class ProjectServiceImpl implements ProjectService{
     @Override
     public void removeUserFromProject(Long projectId, Long userId) throws Exception {
 
-        Project project = getProjectId(projectId);
+        Project project = getProjectById(projectId);
         User user = userService.findUserById(userId);
         if (project.getTeam().contains(user)){
             project.getTeam().remove(user);
@@ -107,7 +107,7 @@ public class ProjectServiceImpl implements ProjectService{
 
     @Override
     public Chat getChatByProjectId(Long projectId) throws Exception {
-        Project project = getProjectId(projectId);
+        Project project = getProjectById(projectId);
 
         return project.getChat();
     }
