@@ -4,9 +4,11 @@ import com.ikshvaku.ProjectHive.Config.JwtProvider;
 import com.ikshvaku.ProjectHive.modal.User;
 import com.ikshvaku.ProjectHive.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
