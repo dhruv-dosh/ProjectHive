@@ -1,5 +1,6 @@
 package com.ikshvaku.ProjectHive.Services;
 
+import ch.qos.logback.core.joran.conditional.IfAction;
 import com.ikshvaku.ProjectHive.modal.Comment;
 import com.ikshvaku.ProjectHive.modal.Issue;
 import com.ikshvaku.ProjectHive.modal.User;
@@ -49,12 +50,26 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public void deleteComment(Long commentId, Long UserId) {
-
+    public void deleteComment(Long commentId, Long userId) throws Exception {
+        Optional<Comment> commentOptional = commentRepository.findById(commentId);
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (commentOptional.isEmpty()){
+            throw new Exception("Comment Not Found With Id"+commentId);
+        }
+        if(userOptional.isEmpty()){
+            throw new Exception("User Not Found With Id"+userId);
+        }
+        Comment comment = commentOptional.get();
+        User user = userOptional.get();
+        if (comment.getUser().equals(user)){
+            commentRepository.delete(comment);
+        }else {
+            throw new Exception("User do not have permission to Delete this comment");
+        }
     }
 
     @Override
     public List<Comment> findCommentByIssueId(Long issueId) {
-        return null;
+        return commentRepository.findCommentByIssueId(issueId);
     }
 }
