@@ -10,4 +10,20 @@ import lombok.NoArgsConstructor;
 public class CreateCommentRequest {
     private Long issueId;
     private String Content;
+
+    public Long getIssueId() {
+        return issueId;
+    }
+
+    public void setIssueId(Long issueId) {
+        this.issueId = issueId;
+    }
+
+    public String getContent() {
+        return Content;
+    }
+
+    public void setContent(String content) {
+        Content = content;
+    }
 }

@@ -81,7 +81,8 @@ public class ProjectController {
     )throws Exception{
        User user = userService.findUserProfileByJwt(jwt);
        projectService.deleteProject(projectId,user.getId());
-        MessageResponse messageResponse = new MessageResponse("Project Deleted Successfully");
+        MessageResponse messageResponse = new MessageResponse();
+        messageResponse.setMessage("Project Deleted Successfully");
        return new ResponseEntity<>(messageResponse, HttpStatus.CREATED);
     }
 
@@ -112,7 +113,8 @@ public class ProjectController {
     )throws Exception{
         User user = userService.findUserProfileByJwt(jwt);
         invitationService.sendInvitation(inviteRequest.getEmail(),inviteRequest.getProjectId());
-        MessageResponse messageResponse = new MessageResponse("User Invited to Project Successfully");
+        MessageResponse messageResponse = new MessageResponse();
+        messageResponse.setMessage("User Invited to Project Successfully");
         return new ResponseEntity<>(messageResponse, HttpStatus.CREATED);
     }
 

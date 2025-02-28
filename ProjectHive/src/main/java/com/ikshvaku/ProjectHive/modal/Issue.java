@@ -122,4 +122,5 @@ public class Issue {
     public void setAssignee(User assignee) {
         this.assignee = assignee;
     }
+
 }
