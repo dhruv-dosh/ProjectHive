@@ -18,7 +18,7 @@ public class Issue {
     private String description;
     private String status;
     private String priority;
-    private Long projectId;
+    private Long  issueProjectId;
 
     private LocalDate dueDate;
     private List<String> tags = new ArrayList<>();
@@ -55,12 +55,12 @@ public class Issue {
         this.priority = priority;
     }
 
-    public Long getProjectId() {
-        return projectId;
+    public Long getIssueProjectId() {
+        return issueProjectId;
     }
 
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
+    public void setIssueProjectId(Long projectId) {
+        this.issueProjectId = projectId;
     }
 
     public LocalDate getDueDate() {
