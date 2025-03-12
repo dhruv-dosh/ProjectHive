@@ -1,6 +1,7 @@
 package com.ikshvaku.ProjectHive.modal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,6 +16,7 @@ public class User {
     private Long id;
     private String fullname;
     private String email;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) //To Not Show Password to client side
     private String password;
 
     public Long getId() {
