@@ -16,7 +16,7 @@ public class IssueDTO {
     private String title;
     private String description;
     private String status;
-    private Long projectId;
+    private Long issueProjectId;
     private String priority;
     private LocalDate dueDate;
     private List<String> tags = new ArrayList<>();
@@ -55,12 +55,12 @@ public class IssueDTO {
         this.status = status;
     }
 
-    public Long getProjectId() {
-        return projectId;
+    public Long getIssueProjectId() {
+        return issueProjectId;
     }
 
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
+    public void setIssueProjectId(Long issueProjectId) {
+        this.issueProjectId = issueProjectId;
     }
 
     public String getPriority() {

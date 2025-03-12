@@ -5,6 +5,7 @@ import com.ikshvaku.ProjectHive.Services.IssueService;
 import com.ikshvaku.ProjectHive.Services.UserService;
 import com.ikshvaku.ProjectHive.modal.Issue;
 import com.ikshvaku.ProjectHive.modal.IssueDTO;
+import com.ikshvaku.ProjectHive.modal.Project;
 import com.ikshvaku.ProjectHive.modal.User;
 import com.ikshvaku.ProjectHive.request.IssueRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class IssueController {
     }
 
     @GetMapping("/project/{projectId}")
-    public ResponseEntity<List<Issue>> getIssueByProjectId(@PathVariable Long projectId)throws Exception{
-       return ResponseEntity.ok(issueService.getIssueByProjectId(projectId));
+    public ResponseEntity<List<Issue>> getIssueByProjectId(@PathVariable Long IssueProjectId)throws Exception{
+       return ResponseEntity.ok(issueService.getIssueByProjectId(IssueProjectId));
     }
 
     @PostMapping
@@ -42,11 +43,13 @@ public class IssueController {
         issueDTO.setDueDate(createdIssue.getDueDate());
         issueDTO.setId(createdIssue.getId());
         issueDTO.setPriority(createdIssue.getPriority());
-        issueDTO.setProjectId(createdIssue.getIssueProjectId());
+        issueDTO.setProject(createdIssue.getProject());
+        issueDTO.setIssueProjectId(createdIssue.getIssueProjectId());
         issueDTO.setStatus(createdIssue.getStatus());
         issueDTO.setTitle(createdIssue.getTitle());
         issueDTO.setTags(createdIssue.getTags());
         issueDTO.setAssignee(createdIssue.getAssignee());
+
 
         return ResponseEntity.ok(issueDTO);
     }

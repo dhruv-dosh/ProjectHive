@@ -10,7 +10,7 @@ public class IssueRequest {
     private String description;
     private String status;
     private String priority;
-    private Long projectId;
+    private Long issueProjectId;
 
     private LocalDate dueDate;
 
@@ -46,12 +46,12 @@ public class IssueRequest {
         this.priority = priority;
     }
 
-    public Long getProjectId() {
-        return projectId;
+    public Long getIssueProjectId() {
+        return issueProjectId;
     }
 
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
+    public void setIssueProjectId(Long issueProjectId) {
+        this.issueProjectId = issueProjectId;
     }
 
     public LocalDate getDueDate() {
